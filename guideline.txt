@@ -1,0 +1,33 @@
+Here is a guideline to run the project:
+
+2.  **Set up Environment:**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+
+3.  **Initialize Database:**
+    Make sure your PostgreSQL server is running. Then run the script:
+    ```bash
+    chmod +x scripts/init_db.sh
+    ./scripts/init_db.sh
+    ```
+
+4.  **Run Migrations:**
+    ```bash
+    alembic upgrade head
+    ```
+
+5.  **Run Application:**
+    ```bash
+    uvicorn app.main:app --reload
+    ```
+
+6.  **Seed Database:**
+    In a new terminal:
+    ```bash
+    python scripts/seed_db.py
+    ```
+
+The API documentation will be available at `http://127.0.0.1:8000/docs`.
